@@ -1,6 +1,6 @@
-<mat-sidenav-container class="sidenav-container">
+<mat-sidenav-container class="sidenav-container" [hasBackdrop]="false">
   <!-- Sidenav -->
-  <mat-sidenav #sidenav mode="over" class="sidenav" [fixedInViewport]="true" [fixedTopGap]="0">
+  <mat-sidenav #sidenav mode="side" class="sidenav" [opened]="false">
     <!-- Close button at the top of sidenav -->
     <div class="sidenav-header">
       <button
@@ -11,24 +11,27 @@
         <mat-icon>close</mat-icon>
       </button>
       <span class="sidenav-title">Menu</span>
-      </div>
+    </div>
+    
     <mat-nav-list>
       <a mat-list-item *ngFor="let item of menuItems" (click)="scrollToSection(item.id)"
         [class.active]="activeSection === item.id">
         <mat-icon matListItemIcon>{{ item.icon }}</mat-icon>
         <span matListItemTitle>{{ item.label }}</span>
-        </a>
+      </a>
     </mat-nav-list>
-    </mat-sidenav>
-    
-    <!-- Main content -->
-    <mat-sidenav-content>
-      <!-- Toolbar with hamburger button -->
-      <mat-toolbar class="toolbar">
-        <button mat-icon-button (click)="toggleMenu()" aria-label="Toggle navigation menu">
-          <mat-icon>menu</mat-icon>
-        </button>
-        <span class="toolbar-title">Portfolio</span>
-      </mat-toolbar>
-    </mat-sidenav-content>
-    </mat-sidenav-container>
+  </mat-sidenav>
+  
+  <!-- Main content -->
+  <mat-sidenav-content>
+    <!-- Toolbar with hamburger button -->
+    <mat-toolbar class="toolbar">
+      <button mat-icon-button (click)="toggleMenu()" aria-label="Toggle navigation menu">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span class="toolbar-title">Portfolio</span>
+    </mat-toolbar>
+    <!-- Content slot -->
+    <ng-content></ng-content>
+  </mat-sidenav-content>
+  </mat-sidenav-container>

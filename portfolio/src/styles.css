@@ -82,3 +82,16 @@ body {
 .mat-mdc-icon-button:hover {
   @apply bg-orange-wheel/10 text-orange-wheel;
 }
+
+/* Sidenav Backdrop */
+.mat-drawer-backdrop,
+.mat-sidenav-backdrop,
+.cdk-overlay-backdrop {
+  background-color: rgba(0, 0, 0, 0.6) !important;
+  backdrop-filter: blur(2px);
+}
+
+.mat-drawer-backdrop.mat-drawer-shown,
+.cdk-overlay-backdrop-showing {
+  opacity: 1 !important;
+}
