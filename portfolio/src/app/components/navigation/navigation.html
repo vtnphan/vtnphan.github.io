@@ -1,6 +1,6 @@
-<mat-sidenav-container class="sidenav-container" [hasBackdrop]="false">
+<mat-sidenav-container class="sidenav-container" [hasBackdrop]="isSmallScreen">
   <!-- Sidenav -->
-  <mat-sidenav #sidenav mode="side" class="sidenav" [opened]="false">
+  <mat-sidenav #sidenav [mode]="isSmallScreen ? 'over' : 'side'" class="sidenav" [opened]="false">
     <!-- Close button at the top of sidenav -->
     <div class="sidenav-header">
       <button

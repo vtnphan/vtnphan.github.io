@@ -23,6 +23,7 @@ export class NavigationComponent {
   @ViewChild('sidenav') sidenav!: MatSidenav;
   activeSection = 'home';
   isBrowser: boolean;
+  isSmallScreen = false;
 
   menuItems = [
     { id: 'home', label: 'Home', icon: 'home' },
@@ -35,6 +36,9 @@ export class NavigationComponent {
 
   constructor(@Inject(PLATFORM_ID) private platformId: Object) {
     this.isBrowser = isPlatformBrowser(platformId);
+    if (this.isBrowser) {
+      this.isSmallScreen = window.innerWidth < 768;
+    }
   }
 
   toggleMenu() {
@@ -74,7 +78,9 @@ export class NavigationComponent {
     }
   }
 
-  get isSmallScreen(): boolean {
-    return this.isBrowser && window.innerWidth < 768;
+  @HostListener('window:resize', [])
+  onWindowResize() {
+    if (!this.isBrowser) return;
+    this.isSmallScreen = window.innerWidth < 768;
   }
 }
