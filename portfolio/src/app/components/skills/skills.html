@@ -4,17 +4,14 @@
       Skills
     </h2>
     
-    <div class="grid gap-8 md:grid-cols-2">
-      <div *ngFor="let skill of skills" class="bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 p-6">
-        <div class="flex justify-between items-center mb-3">
-          <p class="text-rich-black font-bold text-base md:text-lg">{{ skill.name }}</p>
-          <span class="text-primary font-semibold text-sm bg-papaya-whip-700 px-3 py-1 rounded-full">{{ skill.level }}%</span>
-        </div>
-        <div class="w-full bg-gray-200 rounded-full h-3 overflow-hidden shadow-inner">
-          <div 
-            class="bg-gradient-to-r from-caribbean-current-700 to-primary h-full rounded-full transition-all duration-1000 ease-out flex items-center justify-end pr-2"
-            [style.width.%]="skill.level">
-          </div>
+    <div class="grid gap-6 md:grid-cols-2">
+      <div *ngFor="let category of skillCategories" class="bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 p-6">
+        <h3 class="text-rich-black font-bold text-lg mb-4 pb-2 border-b-2 border-primary">{{ category.category }}</h3>
+        <div class="flex flex-wrap gap-2">
+          <span *ngFor="let skill of category.skills" 
+                class="bg-papaya-whip-700 text-primary font-medium px-3 py-1.5 rounded-full text-sm hover:bg-primary hover:text-white transition-colors duration-200">
+            {{ skill }}
+          </span>
         </div>
       </div>
     </div>

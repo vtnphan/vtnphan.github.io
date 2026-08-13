@@ -8,12 +8,26 @@ import { CommonModule } from '@angular/common';
   styleUrl: './skills.css',
 })
 export class SkillsComponent {
-  skills = [
-    { name: 'Python', level: 90 },
-    { name: 'Web Application Development', level: 90 },
-    { name: 'Workflow management (NextFlow)', level: 90 },
-    { name: 'RNAseq analysis', level: 70 },
-    { name: 'DNA Methylation sequencing analysis', level: 50 },
-    { name: 'Metagenomics', level: 70 },
+  skillCategories = [
+    {
+      category: 'Programming languages',
+      skills: ['JavaScript', 'Python', 'R', 'SQL']
+    },
+    {
+      category: 'Backend',
+      skills: ['REST APIs']
+    },
+    {
+      category: 'Frontend',
+      skills: ['Angular', 'NextJs', 'React']
+    },
+    {
+      category: 'Cloud & DevOps',
+      skills: ['AWS', 'CI/CD', 'Docker', 'GitHub Actions']
+    },
+    {
+      category: 'Database',
+      skills: ['PostgresSQL']
+    }
   ];
 }
